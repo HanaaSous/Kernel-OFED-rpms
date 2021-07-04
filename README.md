@@ -1,5 +1,5 @@
 
-  #### Split-copy-update :  It is a script file to continue kernel upgrade process especially "Copy rpm's to the filer" stage.
+  #### upload_Kernel_OFED_rpms :  It is a script file to continue kernel upgrade process especially "Copy rpm's to the filer" stage.
   
   
   ##### Before you run the script you should:
@@ -11,7 +11,7 @@
     - ###### nutanix_cvm_test_filer_location : Path for nutanix_cvm_test filer repo at your machine.
     - ###### nutanix_cvm_3rdparty_local_location : Path for nutanix_cvm_3rdparty local repo at your machine.
     - ###### nutanix_cvm_test_local_location : Path for nutanix_cvm_test local repo at your machine.
-  * ##### Copy both split-copy-update.sh and input.sh into build directory that was created from build proccess.
+  * ##### Copy both upload_Kernel_OFED_rpms.sh and input.sh into build directory that was created from build proccess.
   
   
   #### Steps :
