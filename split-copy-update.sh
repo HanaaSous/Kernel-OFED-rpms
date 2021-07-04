@@ -25,14 +25,16 @@ sudo rm -rf kernel-*.src.rpm
 sudo mv bpftool-* ../kernel_rpms/
 sudo mv *perf-* ../kernel_rpms/
 
+cd ../
+
 echo "############################################################################################"
 echo "#                                     STEP TWO                                             #"
 echo "############################################################################################"
 echo "Copy MLNX_OFED rpms to nutanix-cvm-3rdparty filer repo"
-cp gathered_rpms/* $nutanix_cvm_3rdparty_filer_location/7.7/x86_64/Packages/
+cp -p gathered_rpms/* $nutanix_cvm_3rdparty_filer_location/7.7/x86_64/Packages/
 
 echo "Copy MLNX_OFED rpms to nutanix-cvm-3rdparty local repo"
-cp gathered_rpms/* $nutanix_cvm_3rdparty_local_location/7.7/x86_64/Packages/
+cp -p gathered_rpms/* $nutanix_cvm_3rdparty_local_location/7.7/x86_64/Packages/
 
 
 echo "############################################################################################"
@@ -42,24 +44,24 @@ echo "Create new repodata for Nutanix CVM 3rdParty repo"
 rm -rf $nutanix_cvm_3rdparty_filer_location/7.7/x86_64/repodata
 rm -rf $nutanix_cvm_3rdparty_local_location/7.7/x86_64/repodata
 createrepo $nutanix_cvm_3rdparty_local_location/7.7/x86_64/
-cp -r $nutanix_cvm_3rdparty_local_location/7.7/x86_64/repodata $nutanix_cvm_3rdparty_filer_location/7.7/x86_64/
+cp -rp $nutanix_cvm_3rdparty_local_location/7.7/x86_64/repodata $nutanix_cvm_3rdparty_filer_location/7.7/x86_64/
 
 
 
 echo "############################################################################################"
-echo "#                                     STEP four                                            #"
+echo "#                                     STEP FOUR                                            #"
 echo "############################################################################################"
-echo "Copy Kernel rpms to nutanix-cvm-tes filer repo"
-cp kernel_rpms/* $nutanix_cvm_test_filer_location/7/x86_64/Packages/
+echo "Copy Kernel rpms to nutanix-cvm-test filer repo"
+cp -p kernel_rpms/* $nutanix_cvm_test_filer_location/7/x86_64/Packages/
 
 echo "Copy Kernel rpms to nutanix-cvm-tes local repo"
-cp kernel_rpms/* $nutanix_cvm_test_local_location/7/x86_64/Packages/
+cp -p kernel_rpms/* $nutanix_cvm_test_local_location/7/x86_64/Packages/
 
 echo "############################################################################################"
-echo "#                                     STEP five                                            #"
+echo "#                                     STEP FIVE                                            #"
 echo "############################################################################################"
 echo "Create new repodata for Nutanix CVM Test repo"
 rm -rf $nutanix_cvm_test_filer_location/7/x86_64/repodata
 rm -rf $nutanix_cvm_test_local_location/7/x86_64/repodata
 createrepo $nutanix_cvm_test_local_location/7/x86_64/
-cp -r $nutanix_cvm_test_local_location/7/x86_64/repodata $nutanix_cvm_test_filer_location/7/x86_64/
+cp -rp $nutanix_cvm_test_local_location/7/x86_64/repodata $nutanix_cvm_test_filer_location/7/x86_64/
