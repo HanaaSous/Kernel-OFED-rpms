@@ -16,7 +16,7 @@ sudo rm -rf kernel_rpms
 sudo mkdir kernel_rpms
 
 cd gathered_rpms
-sudo chmod * 777
+sudo chmod 777 *
 ls -al
 
 sudo mv kernel-*.cvm.x86_64.rpm ../kernel_rpms/
