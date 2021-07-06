@@ -23,4 +23,4 @@
 
 
   ##### To Run the script :
-        -  ./split-copy-update.sh
+        -  ./upload_Kernel_OFED-rpms.sh
